@@ -1,7 +1,5 @@
 function calculateCompensation() {
-  const trainingCost = parseFloat(
-    document.getElementById("trainingCost").value
-  );
+  const trainingCost = parseFloat(document.getElementById("trainingCost").value);
   const trainingEndDateValue = document.getElementById("trainingEndDate").value;
   const terminationDateValue = document.getElementById("terminationDate").value;
   const isNew = document.getElementById("isNew").checked;
@@ -20,6 +18,12 @@ function calculateCompensation() {
 
   const trainingEndDate = new Date(trainingEndDateValue);
   const terminationDate = new Date(terminationDateValue);
+
+  if (isNaN(trainingEndDate.getTime()) || isNaN(terminationDate.getTime())) {
+    document.getElementById("result").textContent =
+      "Неверный формат даты.";
+    return;
+  }
 
   let requiredDays = 0;
   if (isOld) {
@@ -45,25 +49,10 @@ function calculateCompensation() {
     }
   }
 
-  console.log("requiredDays", requiredDays);
-
-  const daysWorked =
-    (terminationDate - trainingEndDate) / (1000 * 60 * 60 * 24);
-  const compensation =
-    ((requiredDays - daysWorked) / requiredDays) * trainingCost;
+  const daysWorked = (terminationDate - trainingEndDate) / (1000 * 60 * 60 * 24);
+  const compensation = ((requiredDays - daysWorked) / requiredDays) * trainingCost;
   const result = compensation > 0 ? compensation.toFixed(2) : 0;
-  const daysLeft = requiredDays - daysWorked;
 
-  document.getElementById(
-    "result2"
-  ).textContent = `Срок отработки: ${requiredDays} дней`;
-
-if (daysLeft > 0) {
-      document.getElementById("result3").textContent = `Остаток: ${daysLeft.toFixed(0)} дней`;
-}
-
-
-  document.getElementById(
-    "result"
-  ).textContent = `Сумма возмещения: ${result} тенге`;
+  document.getElementById("result2").textContent = `Срок отработки: ${requiredDays} дней`;
+  document.getElementById("result").textContent = `Сумма возмещения: ${result} тенге`;
 }

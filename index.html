@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Отработки Калькулятор</title>
+    <title>Калькулятор Отработки</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Калькулятор Отработки</h1>
+      <h1>Калькулятор отработки</h1>
       <form id="calcForm">
         <div class="form-group">
           <label for="trainingCost">Затраты на обучение (в тенге):</label>
@@ -33,7 +33,7 @@
           />
           <label for="isNew">МРП</label> <br />
           <input type="radio" id="isOld" name="trainingType" value="old" />
-          <label for="isOld">Фиксированный</label>
+          <label for="isOld">Фиксированный (до 05.09.23)</label>
         </div>
         <div class="form-group">
           <button type="button" onclick="calculateCompensation()">
@@ -42,7 +42,6 @@
         </div>
       </form>
       <div id="result2"></div>
-      <!-- <div id="result3"></div> -->
       <div id="result"></div>
     </div>
     <script src="script.js"></script>
