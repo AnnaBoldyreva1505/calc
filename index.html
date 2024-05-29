@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Отработки Калькулятор</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Калькулятор Отработки</h1>
-        <form id="calcForm">
-            <div class="form-group">
-                <label for="trainingCost">Затраты на обучение (в тенге):</label>
-                <input type="number" id="trainingCost" required>
-            </div>
-            <div class="form-group">
-                <label for="trainingEndDate">Дата окончания обучения:</label>
-                <input type="date" id="trainingEndDate" required>
-            </div>
-            <div class="form-group">
-                <label for="terminationDate">Дата увольнения:</label>
-                <input type="date" id="terminationDate" required>
-            </div>
-            <div class="form-group">
-                <button type="button" onclick="calculateCompensation()">Рассчитать</button>
-            </div>
-        </form>
-        <div id="result"></div>
-        <div id="result2"></div>
+      <h1>Калькулятор Отработки</h1>
+      <form id="calcForm">
+        <div class="form-group">
+          <label for="trainingCost">Затраты на обучение (в тенге):</label>
+          <input type="number" id="trainingCost" required />
+        </div>
+        <div class="form-group">
+          <label for="trainingEndDate">Дата окончания обучения:</label>
+          <input type="date" id="trainingEndDate" required />
+        </div>
+        <div class="form-group">
+          <label for="terminationDate">Дата увольнения:</label>
+          <input type="date" id="terminationDate" required />
+        </div>
+        <div class="form-group">
+          <label>Тип расчета:</label> <br>
+          <input type="radio" id="isNew" name="trainingType" value="new" checked/>
+          <label for="isNew">МРП</label> <br>
+          <input type="radio" id="isOld" name="trainingType" value="old" />
+          <label for="isOld">Фиксированный</label>
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="calculateCompensation()">
+            Рассчитать
+          </button>
+        </div>
+      </form>
+      <div id="result"></div>
+      <div id="result2"></div>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
